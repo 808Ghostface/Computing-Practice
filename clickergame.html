@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="clickerstyle.css">
+    <style>
+       button {
+           background-color: #ff69b4; /* Pink color */
+           color: #fff; /* White text color */
+           padding: 10px 20px; /* Adjust padding as needed */
+           border: none;
+           border-radius: 10px; /* Rounded corners */
+           cursor: pointer;
+           transition: background-color 0.3s ease; /* Smooth transition */
+       }
+       #timer-container {
+               position: fixed;
+               top: 0;
+               left: 0;
+               background-color: rgba(0, 0, 0, 0.5);
+               color: white;
+               padding: 10px;
+               border-radius: 5px;
+           }
+       /* Styling the button when pressed */
+       button:active {
+           background-color: #ff4f94; /* Darker pink color when pressed */
+       }
+   </style>
+    <title>Clicker Game</title>
+</head>
+<body>
+    <div id="timer-container">Timer: <span id="timer-display">00:00:00</span>
+        <input type="number" id="timer-input" min="1" max="60" value="10"> <!-- Input field for timer duration -->
+        <button id="start-timer">Set Timer</button>
+      </div>
+    <div id="click-counter">Clicks: 0</div>
+    <div id="multiplier-display"></div>
+    <button id="click-button">Click me!</button>
+    <div id="timer">Time: 0s</div>
+
+    <script src="clickerscript.js" defer></script>
+</body>
+</html>
