@@ -20,21 +20,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
    setTimer.addEventListener("click",function() {
      showTime();
-
    });
 
-   dropDown.addEventListener("change", function(){
-     const input = parseInt(this.value);
-     const hours = Math.floor(input / 3600);
-     const minutes = Math.floor((input % 3600) / 60);
-     const seconds = input % 60;
+   function showTime() {
 
-     const showHours = String(hours).padStart(2, "0");
-     const showMins = String(minutes).padStart(2, "0");
-     const showSecs = String(seconds).padStart(2, "0");
+minutes = Math.floor(time / 60);
+seconds = Math.floor(time / 60);
+   }
 
-     timerDisplay.textContent = "${showHours}":"${showMins}":"${showSecs}";
+ startTimer.addEventListener("click",function() {
 
-   });
+ });
+
+ window.addEventListener("beforeunload", function () {
+     clearInterval(timerInterval);
+ });
 
 });
