@@ -1,14 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-    
+    // Variables
+    let minutes = 00;
+    let seconds = 00;
     let clickCount = 0;
     let timer;
     let timeLeft;
+    let timerInterval;
     let timerActive = false;
 
+    // Elements
+    const amendMinutes = document.getElementById("minutes");
+    const amendSeconds = document.getElementById("seconds");
     const clickCounter = document.getElementById("click-counter");
     const clickButton = document.getElementById("click-button");
     const multiplierDisplay = document.getElementById("multiplier-display");
-    const timerDisplay = document.getElementById("timer-display");
     const setTimer = document.getElementById("set-timer");
     const startTimer = document.getElementById("start-timer");
     const dropDown = document.getElementById("timer-dropdown");
