@@ -16,12 +16,6 @@ body {
     margin-bottom: 100px;
 }
 
-/*#stop-timer {
-margin-left: 40px;
-padding-right: 12px;
-
-} */
-
 #minutes, #seconds{
   color: white;
   font-style: italic;
