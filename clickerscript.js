@@ -1,66 +1,73 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Variables
     let clickCount = 0;
-    let timer;
-    let timeLeft;
-    let timerInterval;
-    let timerActive = false;
+    var start = document.getElementById("start-timer");
+    var stop = document.getElementById("stop-timer");
+    var reset = document.getElementById("reset-timer");
+    var mins = document.getElementById("minutes");
+    var secs = document.getElementById("seconds");
 
     // Elements
-    const amendMinutes = document.getElementById("minutes");
-    const amendSeconds = document.getElementById("seconds");
-  ////  const set15 = document.getElementById("set-15");
-  //  const set30 = document.getElementById("set-30");
-  //  const set60 = document.getElementById("set-60");
 
     const clickCounter = document.getElementById("click-counter");
     const clickButton = document.getElementById("click-btn");
-    const multiplierDisplay = document.getElementById("multiplier-display");
-    const setTimer = document.getElementById("set-timer");
-    const startTimer = document.getElementById("start-timer");
 
+    //reference to variables
+    var startTimer = null;
 
     clickButton.addEventListener("click", function () {
        clickCount++;
        clickCounter.textContent = `Clicks: ${clickCount}`;
    });
 
-   setTimer.addEventListener("click",function() {
+   start.addEventListener('click', function(){
+       //initialize the variable
+       function goTime(){
+           startTimer = setInterval(function() {
+               time();
+           }, 1000);
+       }
+   goTime();
+});
 
-     showTime();
-   });
+stop.addEventListener("click", function(){
+  clearInterval(startTimer);
+});
 
-   function showTime() {
-    selectTime = document.querySelector('#timer-dropdown');
-    minutes = selectTime.value;
-    document.querySelector('.minutes').textContent = minutes/60;
-    if (document.querySelector('.minutes').textContent < 10){
-      document.querySelector('.minutes').textContent = "0" + document.querySelector('.minutes').textContent;
-      }
+reset.addEventListener('click', function(){
+   mins.value = 0;
+   secs.value = 0;
+   //stop the timer after pressing "reset"
+   stopInterval();
+   ableStart();
+   disableClick();
+   return;
+});
+
+function time(){
+   if(mins.value == 0 && secs.value == 0){
+       mins.value = 0;
+       secs.value = 0;
    }
-
-   function goTime() {
-     let countDown = document.getElementById("seconds");
-     if (document.querySelector('.minutes').textContent < 61)
-     {
-       countDown = 59
+   else if(secs.value != 0){
+       secs.value--;
+   }
+   else if(mins.value != 0 && secs.value == 0){
+       secs.value = 59;
+       mins.value--;
      }
-const timer = setInterval(function() {
-  countDown--;
-  console.log(countdowns);
-  if (countDown === 0) {
-    clearInterval(timer);
-    console.log("Time's up!");
-  }
-}, 1000);
+   return;
 }
 
- startTimer.addEventListener("click",function() {
-goTime();
- });
+//stop the function after pressing the reset button,
+//so the time wont go down when selecting a new time after pressing reset
+function stopInterval() {
+   clearInterval(startTimer);
+}
 
- window.addEventListener("beforeunload", function () {
-     clearInterval(timerInterval);
- });
+
+  window.addEventListener("beforeunload", function () {
+     clearInterval(startTime);
+  });
 });
 
