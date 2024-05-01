@@ -5,20 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="clickerstyle.css">
     <style>
-       button {
-           background-color: #ff69b4; /* Pink color */
-           color: #fff; /* White text color */
-           padding: 10px 20px; /* Adjust padding as needed */
-           border: none;
-           border-radius: 10px; /* Rounded corners */
-           cursor: pointer;
-           transition: background-color 0.3s ease; /* Smooth transition */
-       }
+
+    button {
+              background-color: #ff69b4; /* Pink color */
+              color: #fff; /* White text color */
+              padding: 10px 20px; /* Adjust padding as needed */
+              border: none;
+              border-radius: 10px; /* Rounded corners */
+              cursor: pointer;
+              transition: background-color 0.3s ease; /* Smooth transition */
+          }
+
        #timer-container {
                position: fixed;
                top: 0;
                left: 0;
-               background-color: rgba(0, 0, 0, 0.5);
+               background-color: rgba(0, 0, 0, 1);
                color: white;
                padding: 10px;
                border-radius: 5px;
@@ -27,19 +29,42 @@
        button:active {
            background-color: #ff4f94; /* Darker pink color when pressed */
        }
+     img{
+       width: 270px;
+       height: 270px;
+     }
    </style>
     <title>Clicker Game</title>
 </head>
 <body>
-    <div id="timer-container">Timer: <span id="timer-display">00:00:00</span>
-        <input type="number" id="timer-input" min="1" max="60" value="10"> <!-- Input field for timer duration -->
-        <button id="start-timer">Set Timer</button>
+    <div id="timer-container">Timer: <span class="minutes">00</span>:<span id="seconds">00</span>
+      <br>
+
+    <select id="timer-dropdown">
+    <option value="60">1</option>
+    <option value="600">10</option>
+    <option value="900">15</option>
+    <option value="1200">20</option>
+    <option value="1500">25</option>
+    <option value="1800">30</option>
+    <option value="2100">35</option>
+    <option value="2400">40</option>
+    <option value="2700">45</option>
+    <option value="3000">50</option>
+    <option value="3300">55</option>
+    <option value="3600">60</option>
+</select>
+
+        <button id="set-timer">Set minutes</button>
+        <br><br>
+        <button id="start-timer">Start Timer</button>
       </div>
-    <div id="click-counter">Clicks: 0</div>
+    <div id="click-counter" style="color: white;">Clicks: 0</div>
     <div id="multiplier-display"></div>
-    <button id="click-button">Click me!</button>
-    <div id="timer">Time: 0s</div>
+    <button id="click-btn"><img src="https://www.svgrepo.com/show/5251/planet-earth.svg"
+      alt="buttonpng" border="0"/></button>
 
     <script src="clickerscript.js" defer></script>
 </body>
 </html>
+
