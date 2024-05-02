@@ -1,0 +1,22 @@
+{
+   "user" : {
+    "1":{
+        "name": "user1",
+        "hoursSpent": 0,
+        "clickTotal": 0
+     }
+    },
+    "user2" : {
+       "2" : {"name": "user2",
+        "hoursSpent": "0",
+        "clickTotal": "0"
+        }
+    },
+    "user3" : {
+        "3" : {
+        "name": "user3",
+        "hoursSpent": "0",
+        "clickTotal": "0"
+        }
+    }
+}
