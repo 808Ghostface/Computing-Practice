@@ -14,17 +14,6 @@
               cursor: pointer;
               transition: background-color 0.3s ease; /* Smooth transition */
           }
-
-       #timer-container {
-               position: fixed;
-               top: 0;
-               left: 0;
-               background-color: rgba(0, 0, 0, 1);
-               color: white;
-               padding: 10px;
-               padding-right: 25px;
-               border-radius: 5px;
-           }
        /* Styling the button when pressed */
        button:active {
            background-color: #ff4f94; /* Darker pink color when pressed */
@@ -37,9 +26,12 @@
     <title>Clicker Game</title>
 </head>
 <body>
-      <script src="clickerscript.js" defer></script>
-      <script> alert("Welcome to World Idle Clicker");</script>
+  <div id="displayInfo" style="color: white;">
 
+  </div>
+      <script src="clickscript.js" defer></script>
+      <script> alert("Welcome to Astronaut's Idle Clicker");</script>
+      <script> fetch("read.json"); </script>
       <script> function choose(){
         document.getElementById("start-timer").hidden = true;
         document.getElementById("stop-timer").hidden = false;
@@ -54,16 +46,22 @@
       <script> function stop(){
         document.getElementById("start-timer").hidden = false;
         document.getElementById("reset-timer").hidden = false;
-        document.getElementById("click-btn").hidden = true;}</script>
+        document.getElementById("click-btn").hidden = true;
+        finshAlert();}</script>
 
       <script> function resetAct(){
         document.getElementById("reset-timer").hidden = true;
         document.getElementById("stop-timer").hidden = true;
         document.getElementById("start-timer").hidden = true;}</script>
 
-
+      <script> function finishAlert(){
+        if (document.getElementById("minutes").value == 0 && document.getElementById("seconds").value == 0){
+          document.getElementById("click-btn").hidden = true;
+        }
+      } </script>
+    <div id="name-tag" style="color: white;">Idle Clicker</div>     <button id= "welcome-user">Edit name!</button>
     <div id="timer-container">Timer:
-    <input id="minutes" type="number" max="60" min="0" value="0" class="time" onclick="startAct()">:<input id="seconds" type="number" max="60" min="0" value="0" class="time">
+    <input id="minutes" type="number" max="60" min="0" value="0" class="time" onclick="startAct()">:<input id="seconds" type="number" max="60" min="0" value="0" class="time" onclick="startAct()">
         <br><br>
         <button id="start-timer" onclick="choose()" hidden>Start</button>
         <br><br>
@@ -71,11 +69,11 @@
         <br><br>
         <button id="reset-timer" onclick="resetAct()" hidden>Reset</button>
       </div>
-    <div id="click-counter" style="color: white;" hidden>Clicks: 0</div>
-    <div id="multiplier-display"></div>
+      <div id="click-counter" style="color: white;" hidden>Clicks: 0</div>
+
+    <div id="overallTime" style="color: white;" class="timeSpent" hidden>00:00:00</div>
     <button id="click-btn" hidden><img src="https://www.svgrepo.com/show/5251/planet-earth.svg"
       alt="buttonpng" border="0"/></button>
 
 </body>
 </html>
-
