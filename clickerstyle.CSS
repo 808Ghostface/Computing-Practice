@@ -1,4 +1,4 @@
-body {
+body{
     background-image: url("https://blenderartists.org/uploads/default/original/4X/7/e/2/7e2d7bea4ac21388c4a96e1371f375c4ce00094b.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -11,23 +11,29 @@ body {
     margin: 0;
 }
 
-#click-counter, #timer {
+#click-counter, #timer{
     font-size: 18px;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
+    position: static;
 }
-
+#start-timer, #stop-timer, #reset-timer{
+  position: static;
+}
 #minutes, #seconds{
   color: white;
   font-style: italic;
+  font-size: 30px;
   font-family: timesnewroman;
   background-color: inherit;
   border: none;
   padding-right:0.1px;
 }
+
 #seconds{
   padding-left: 30px;
 }
-#click-btn {
+
+#click-btn{
     padding: .1px .1px;
     font-size: 2px;
     cursor: pointer;
@@ -38,9 +44,20 @@ body {
     background-color: rgba(0, 0, 0, 6);
     transition: all 0.7s ease-in-out;
     margin-left:10px;
+    margin-top: 10px;
 }
-
-#click-btn:hover {
+#timer-container {
+        position: static;
+        top: 0;
+        left: 50;
+        font-size: 30px;
+        background-color: rgba(0, 0, 0, 1);
+        color: white;
+        padding: 10px;
+        padding-right: 25px;
+        border-radius: 5px;
+    }
+#click-btn:hover{
     transform: rotate(360deg);
 }
 
@@ -49,7 +66,16 @@ transform:scale(1.5);
 transition: all 0.3s ease-in-out;
 }
 
-#click-btn:active{
-transform:scale(1.5);
-transition: all 0.3s ease-in-out;
+#name-tag{
+  font-size: 50px;
+  font-family: timesnewroman;
+  top: 25;
+}
+#welcome-user{
+  color: white;
+  font-style: italic;
+  font-size: 20px;
+  font-family: timesnewroman;
+  top: 10;
+  right: 10;
 }
